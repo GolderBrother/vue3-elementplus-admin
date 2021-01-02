@@ -1,0 +1,29 @@
+language: node_js
+node_js:
+  - "10"
+
+install:
+  - npm install
+
+script:
+  - npm run build
+
+after_success:
+  - cd ./dist
+  - git init
+  - git config --global user.name "${U_NAME}"
+  - git config --global user.email "${U_EMAIL}"
+  - git add .
+  - git commit -m "Automatically update from travis-ci"
+  - git push --quiet --force  "https://${GH_TOKEN}@${GH_REF}" master:${P_BRANCH}
+
+branches:
+  only:
+    - master
+env:
+  global:
+    - GH_REF:github.com/GolderBrother/vue3-elementplus-admin.git
+    - GH_TOKEN:e370eabb076adaf223be89e7dc0796eed8a53a50
+    - P_BRANCH:gh-pages
+    - U_EMAIL:1204788939@qq.com
+    - U_NAME:GolderBrother
