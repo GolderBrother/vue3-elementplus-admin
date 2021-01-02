@@ -1,4 +1,4 @@
-import request from "@/request/index.js";
+import request from "@/http/index.ts";
 
 export const getTableList = () => {
     return request.get('http://localhost:3000/wans');

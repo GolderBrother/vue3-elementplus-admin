@@ -18,6 +18,11 @@ declare module '*.module.less' {
   export default classes
 }
 
+declare module '@/common/style/*.scss' {
+  const content: any;
+  export default content;
+}
+
 // declare module '*.scss' {
 //   const content: any;
 //   export default content;

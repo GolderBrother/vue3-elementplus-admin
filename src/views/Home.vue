@@ -42,17 +42,17 @@
 </template>
 
 <script lang="ts">
-import { ref, reactive, provide } from "vue";
+import { reactive, provide } from "vue";
 import variable from "@/common/style/variable.scss";
 import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
 import { useRouter } from "vue-router";
 import { useTheme } from "@/composition/useThemeApi";
-import request from "@/http/index";
+// import request from "@/http/index";
 export default {
   setup() {
     const themeApi = useTheme();
     const router = useRouter();
-    let variables = reactive(variable);
+    const variables = reactive(variable);
     const envName = reactive({ title: process.env.VUE_APP_TITLE });
     const mockData = reactive({ data: {} });
     function jumpToInner() {
@@ -60,7 +60,9 @@ export default {
         path: "/inner"
       });
     }
-    function loadData() {}
+    function loadData() {
+      console.log("loadData");
+    }
     provide("obj", envName); // 向子孙组件传递参数
     return {
       envName,
