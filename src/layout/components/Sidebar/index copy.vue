@@ -15,18 +15,18 @@ el-menu(
 
 <script lang="ts">
 import { useStore } from "vuex";
-import { useRouter, useRoute } from "vue-router";
-import { ref, onMounted } from "vue";
+// import { useRoute } from "vue-router";
+// import { ref, onMounted } from "vue";
 import Sidebar from "./Sidebar.vue";
-import { useDynamicRoutesHook } from "@/composition/useTagViewApi";
+import { useDynamicRoutesHook } from "@/composition/useTagViewApi.ts";
 import variables from "@/common/style/variable.scss";
 export default {
   props: ["routes"],
   setup() {
     const store = useStore();
-    const route = useRoute();
+    // const route = useRoute();
     const { dynamicRouteTags } = useDynamicRoutesHook();
-    function menuSelect(index: any) {
+    function menuSelect(index: string) {
       let parentPath = "";
       const parentPathIndex = index.lastIndexOf("/");
       if (parentPathIndex > 0) {
@@ -45,4 +45,4 @@ export default {
   }
 };
 </script>
-<style lang="less" scoped></style>
+<style lang="scss" scoped></style>

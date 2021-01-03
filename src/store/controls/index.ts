@@ -1,3 +1,4 @@
+import { Store } from "vuex";
 import { staticRoutes } from "../../router/staticRoutes";
 import { TOGGLE_COLLAPSE } from "./mutation-types";
 export interface State {
@@ -13,7 +14,11 @@ export default {
       state.isCollapse = !state.isCollapse;
     }
   },
-  actions: {},
+  actions: {
+    toggleCollapse(store: any) {
+      store.commit(TOGGLE_COLLAPSE);
+    }
+  },
   getters: {},
   modules: {}
 };

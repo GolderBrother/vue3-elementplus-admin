@@ -1,12 +1,7 @@
 <template>
   <div class="header_main" :style="{ background: themeApi.theme.customTheme }">
     <div class="collapseicon">
-      <i
-        @click="toggleMenuCollpase()"
-        :class="
-          state.controls.isCollapse ? 'el-icon-s-unfold' : 'el-icon-s-fold'
-        "
-      ></i>
+      <i @click="toggleMenuCollpase()" :class="collapseClass"></i>
       <el-breadcrumb separator="/">
         <transition-group name="breadcrumb">
           <el-breadcrumb-item key="/" :to="{ path: '/' }"
@@ -29,7 +24,7 @@
 <script lang="ts">
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
-import { watch, reactive } from "vue";
+import { watch, reactive, computed } from "vue";
 import tagsview from "../Tagsview/index.vue";
 import { useTheme } from "@/composition/useThemeApi";
 export default {
@@ -42,8 +37,11 @@ export default {
     } = reactive({
       currentRouteList: []
     });
+    const collapseClass = computed(() =>
+      store.state.controls.isCollapse ? "el-icon-s-unfold" : "el-icon-s-fold"
+    );
     function toggleMenuCollpase() {
-      store.commit("TOOGLESIDEBAR");
+      store.dispatch("toggleCollapse");
     }
     function useRouteList(value: unknown) {
       return value;
@@ -58,6 +56,7 @@ export default {
       toggleMenuCollpase,
       routeListConfig,
       state: store.state,
+      collapseClass,
       themeApi,
       useRouteList
     };
@@ -68,7 +67,7 @@ export default {
 };
 </script>
 <style lang="scss">
-// @import '@/common/style/variable.scss';
+@import "@/common/style/variable.scss";
 .collapseicon .el-breadcrumb__inner a:hover,
 .collapseicon .el-breadcrumb__inner.is-link:hover {
   color: $menuActiveText;

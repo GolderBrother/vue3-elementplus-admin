@@ -60,9 +60,10 @@ export default {
 
 <style lang="scss">
 section.el-container.is-vertical {
-  height: 100vh;
-  overflow-y: scroll;
   width: calc(100vw - 210px);
+  overflow-y: scroll;
+  padding: 10px 0;
+  height: 100vh;
 }
 .el-main::-webkit-scrollbar {
   display: none;
@@ -75,15 +76,16 @@ section.el-container.is-vertical {
 .el-menu {
   width: 210px !important;
   min-height: 100%;
-  .el-menu--collapse {
+
+  &.el-menu--collapse {
     width: 60px !important;
   }
   /*隐藏文字*/
-  .el-menu--collapse .el-submenu__title span {
+  &.el-menu--collapse .el-submenu__title span {
     display: none;
   }
   /*隐藏 > */
-  .el-menu--collapse .el-submenu__title .el-submenu__icon-arrow {
+  &.el-menu--collapse .el-submenu__title .el-submenu__icon-arrow {
     display: none;
   }
 }

@@ -48,6 +48,7 @@ export default {
   .scroll-item {
     border: 1px solid #eee;
     border-radius: 3px;
+    margin: 0 4px;
     padding: 2px 8px;
     display: inline-block;
     margin-right: 2px;

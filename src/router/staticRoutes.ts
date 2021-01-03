@@ -50,7 +50,7 @@ export const staticRoutes: StaticRoutes[] = [
   },
   {
     path: "/doc",
-    name: "文档",
+    name: "嵌套路由",
     redirect: "/doc/doctxt",
     component: Wrapper,
     meta: {
