@@ -1,5 +1,6 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from "axios";
 // import * as EventEmitter from 'events';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const EventEmitter = require("events");
 class Request extends EventEmitter {
   constructor() {

@@ -19,8 +19,17 @@ import Table from "@/views/Table.vue";
  * }
  *
  */
-
-export const staticRoutes = [
+export interface StaticRoutes {
+  path: string;
+  name: string;
+  redirect?: string;
+  component: object;
+  children: StaticRoutes[];
+  meta: {
+    icon: string;
+  };
+}
+export const staticRoutes: StaticRoutes[] = [
   {
     path: "/",
     name: "首页",

@@ -34,7 +34,7 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx",
-    "src/typed.d.ts",
+    // "src/typed.d.ts",
     "src/typed-css.d.ts",
     "src/typed-axios.d.ts"
   ],

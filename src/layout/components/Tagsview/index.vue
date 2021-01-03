@@ -20,13 +20,13 @@
 </template>
 
 <script lang="ts">
-import { useDynamicRoutesHook } from "@/composition/useTagViewApi";
+import { useDynamicRoutesHook, DRoutes } from "@/composition/useTagViewApi.ts";
 import { useRoute } from "vue-router";
 export default {
   setup() {
     const route = useRoute();
     const { deleteDynamicTag, dynamic } = useDynamicRoutesHook();
-    function deleteOneMenu(item) {
+    function deleteOneMenu(item: DRoutes) {
       deleteDynamicTag(item, route.path);
     }
 

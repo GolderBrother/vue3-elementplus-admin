@@ -1,10 +1,17 @@
 <template>
-  <div class="header_main" :style="{background:themeApi.theme.customTheme}">
+  <div class="header_main" :style="{ background: themeApi.theme.customTheme }">
     <div class="collapseicon">
-      <i @click="toggleMenuCollpase()" :class="state.controls.isCollapse ? 'el-icon-s-unfold' : 'el-icon-s-fold'"></i>
+      <i
+        @click="toggleMenuCollpase()"
+        :class="
+          state.controls.isCollapse ? 'el-icon-s-unfold' : 'el-icon-s-fold'
+        "
+      ></i>
       <el-breadcrumb separator="/">
         <transition-group name="breadcrumb">
-          <el-breadcrumb-item key="/" :to="{ path: '/' }">首页</el-breadcrumb-item>
+          <el-breadcrumb-item key="/" :to="{ path: '/' }"
+            >首页</el-breadcrumb-item
+          >
           <el-breadcrumb-item
             v-for="(item, index) in routeListConfig.currentRouteList"
             :key="index"
@@ -22,21 +29,23 @@
 <script lang="ts">
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
-import { watch, reactive, onMounted } from "vue";
+import { watch, reactive } from "vue";
 import tagsview from "../Tagsview/index.vue";
-import {useTheme} from '@/composition/useThemeApi';
+import { useTheme } from "@/composition/useThemeApi";
 export default {
   setup() {
     const themeApi = useTheme();
     const store = useStore();
     const route = useRoute();
-    let routeListConfig: any = reactive({
+    const routeListConfig: {
+      currentRouteList: unknown[];
+    } = reactive({
       currentRouteList: []
     });
     function toggleMenuCollpase() {
       store.commit("TOOGLESIDEBAR");
     }
-    function useRouteList(value: any) {
+    function useRouteList(value: unknown) {
       return value;
     }
     watch(
@@ -49,7 +58,8 @@ export default {
       toggleMenuCollpase,
       routeListConfig,
       state: store.state,
-      themeApi
+      themeApi,
+      useRouteList
     };
   },
   components: {
@@ -59,7 +69,8 @@ export default {
 </script>
 <style lang="scss">
 // @import '@/common/style/variable.scss';
-.collapseicon .el-breadcrumb__inner a:hover, .collapseicon .el-breadcrumb__inner.is-link:hover{
+.collapseicon .el-breadcrumb__inner a:hover,
+.collapseicon .el-breadcrumb__inner.is-link:hover {
   color: $menuActiveText;
 }
 .header_main {
@@ -77,7 +88,8 @@ export default {
   cursor: pointer;
 }
 // el-icon-s-unfold 折叠后
-.collapseicon .el-icon-s-fold, .collapseicon .el-icon-s-unfold {
+.collapseicon .el-icon-s-fold,
+.collapseicon .el-icon-s-unfold {
   font-size: 20px;
   vertical-align: middle;
   margin-right: 5px;
@@ -97,7 +109,7 @@ export default {
 /* breadcrumb transition */
 .breadcrumb-enter-active,
 .breadcrumb-leave-active {
-  transition: all .5s;
+  transition: all 0.5s;
 }
 .breadcrumb-enter,
 .breadcrumb-leave-active {
@@ -105,7 +117,7 @@ export default {
   transform: translateX(20px);
 }
 .breadcrumb-move {
-  transition: all .5s;
+  transition: all 0.5s;
 }
 .breadcrumb-leave-active {
   position: absolute;

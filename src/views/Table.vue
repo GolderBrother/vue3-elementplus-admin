@@ -69,15 +69,24 @@
 <script>
 import { reactive } from "vue";
 import { getTableList, getItem, deleteItem } from "@/api/index";
+import { mockData } from "@/mock/table";
 export default {
   setup() {
     const tableDataList = reactive({ id: "", list: [] });
     function getList() {
-      getTableList().then(data => {
-        if (data.err === "") {
-          tableDataList.list = data.result;
-        }
-      });
+      const mockResult = {
+        err: "",
+        result: mockData.wans
+      };
+      console.log("mockResult", mockResult);
+      if (mockResult.err === "") {
+        tableDataList.list = mockResult.result || [];
+      }
+      // getTableList().then(data => {
+      //   if (data.err === "") {
+      //     tableDataList.list = data.result;
+      //   }
+      // });
     }
     getList(); // 默认第一次拉取数据 一定要先 执行npm run mock 启动mock服务
     function tableMinHeight() {

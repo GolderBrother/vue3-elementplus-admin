@@ -29,7 +29,7 @@
       style/variable.less/@menuActiveText
     </div>
     <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <!-- <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" /> -->
     <div>
       9. mock数据：采用json-server基于RESTfulapi风格模拟数据 参考：src/mock/
       启动mock服务 npm run mock
@@ -44,9 +44,9 @@
 <script lang="ts">
 import { reactive, provide } from "vue";
 import variable from "@/common/style/variable.scss";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
+// import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
 import { useRouter } from "vue-router";
-import { useTheme } from "@/composition/useThemeApi";
+import { useTheme } from "@/composition/useThemeApi.ts";
 // import request from "@/http/index";
 export default {
   setup() {
@@ -74,7 +74,7 @@ export default {
     };
   },
   components: {
-    HelloWorld
+    // HelloWorld
   }
 };
 </script>

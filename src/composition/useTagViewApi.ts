@@ -1,25 +1,32 @@
 import { reactive } from "vue";
-import { staticRoutes } from "@/router/staticRoutes";
-import {useRouter} from 'vue-router';
+import { StaticRoutes, staticRoutes } from "@/router/staticRoutes";
+import { useRouter } from "vue-router";
 
-let dynamic = reactive({
+const dynamic = reactive({
   dRoutes: [{ path: "/", name: "首页" }]
 });
-
+export interface DRoutes {
+  path: string;
+  name: string;
+}
 export function useDynamicRoutesHook() {
   const router = useRouter();
   /**
    * @param value String 当前menu对应的路由path
    * @param parentPath string 当前路由中父级路由
    */
-  function dynamicRouteTags(value: any, parentPath: any) {
-    const hasValue = dynamic.dRoutes.some((item, index) => {
+  function dynamicRouteTags(value: unknown, parentPath: unknown) {
+    const hasValue = dynamic.dRoutes.some((item: DRoutes) => {
       return item.path === value;
     });
-    function concatPath(arr: any, value: any, parentPath: any){
+    function concatPath(
+      arr: StaticRoutes[],
+      value: unknown,
+      parentPath: unknown
+    ) {
       if (!hasValue) {
-        arr.forEach((constItem: any, constIndex: any) => {
-          let pathConcat = parentPath + '/' + constItem.path;
+        arr.forEach((constItem: StaticRoutes) => {
+          const pathConcat = parentPath + "/" + constItem.path;
           if (constItem.path === value || pathConcat === value) {
             dynamic.dRoutes.push({ path: value, name: constItem.name });
           } else {
@@ -36,16 +43,17 @@ export function useDynamicRoutesHook() {
    * @param value String 当前删除tag路由
    * @param current Objct 当前激活路由对象
    */
-  function deleteDynamicTag(value: any, current: any) {
-    new Promise((resolve, reject) => {
-      let valueIndex = dynamic.dRoutes.findIndex((item, index) => {
+  function deleteDynamicTag(value: DRoutes, current: string) {
+    new Promise(resolve => {
+      const valueIndex = dynamic.dRoutes.findIndex(item => {
         return item.path === value.path;
       });
       dynamic.dRoutes.splice(valueIndex, 1);
       resolve();
     }).then(() => {
-      if (current === value.path) { // 如果删除当前激活tag就自动切换到最后一个tag
-        let newRoute = dynamic.dRoutes.slice(-1);
+      if (current === value.path) {
+        // 如果删除当前激活tag就自动切换到最后一个tag
+        const newRoute = dynamic.dRoutes.slice(-1);
         router.push({
           path: newRoute[0].path
         });
