@@ -43,7 +43,8 @@ export default {
     item: Object,
     basePath: String
   },
-  setup(props) {
+  setup(props, context) {
+    console.log("setup context", context);
     function resolvePath(routePath) {
       const hasBasePath = props.basePath ? props.basePath : "";
       return path.resolve(hasBasePath, routePath);
@@ -56,7 +57,7 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "@/common/style/variable.scss";
+// @import "@/style/variable.less";
 #app {
   .el-menu-item {
     display: flex;
@@ -73,9 +74,12 @@ export default {
       background-color: $menuHover !important;
     }
   }
-  .el-submenu__title i {
-    height: 18px;
-    color: $menuText !important;
+  .el-submenu__title {
+    text-align: left;
+    i {
+      height: 18px;
+      color: $menuText !important;
+    }
   }
   .el-menu-item i {
     height: 18px;
