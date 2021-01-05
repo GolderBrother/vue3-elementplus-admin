@@ -1,0 +1,112 @@
+{
+  "name": "sample-manage",
+  "description": "This is a admin system demo of vue3 & element plus",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "test": "vue-cli-service build --mode test",
+    "build": "vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit",
+    "test:e2e": "vue-cli-service test:e2e",
+    "lint": "vue-cli-service lint",
+    "commit": "git-cz",
+    "changelog": "standard-version",
+    "init-commitizen": "npx commitizen init cz-conventional-changelog --tnpm --save-dev --save-exact",
+    "fix": "prettier --write  \"./src/**/*.{vue,js,json,css,ts}\"",
+    "info": "npm-scripts-info"
+  },
+  "scripts-info": {
+    "serve": "启动开发环境服务",
+    "test": "构建测试环境代码包",
+    "build": "构建正式环境代码包",
+    "lint": "",
+    "test:unit": "单元测试",
+    "test:e2e": "端到端测试",
+    "commit": "取代git commit",
+    "changelog": "生成commit后的更新日志",
+    "init-commitizen": "初始化项目为commitizen规范",
+    "info": "查看scripts命令的描述信息"
+  },
+  "dependencies": {
+    "@types/node": "^14.14.19",
+    "axios": "^0.21.1",
+    "element-plus": "^1.0.1-beta.18",
+    "events": "^3.2.0",
+    "less": "^4.0.0",
+    "less-loader": "^7.2.1",
+    "pug": "^3.0.0",
+    "pug-plain-loader": "^1.1.0",
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.0-0",
+    "vuex": "^4.0.0-0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "@tencent/eslint-config-tencent": "^0.12.3",
+    "@types/axios": "^0.14.0",
+    "@types/events": "^3.0.0",
+    "@types/jest": "^24.0.19",
+    "@typescript-eslint/eslint-plugin": "^2.33.0",
+    "@typescript-eslint/parser": "^2.33.0",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-e2e-cypress": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-typescript": "~4.5.0",
+    "@vue/cli-plugin-unit-jest": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "@vue/eslint-config-typescript": "^5.0.2",
+    "@vue/test-utils": "^2.0.0-0",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-component": "^1.1.1",
+    "commitizen": "^4.2.2",
+    "core-js": "^3.8.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^6.8.0",
+    "eslint-loader": "^2.2.1",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-vue": "^7.0.0-0",
+    "husky": "^4.3.6",
+    "lint-staged": "^10.5.3",
+    "prettier": "^1.19.1",
+    "sass": "^1.26.5",
+    "sass-loader": "^8.0.2",
+    "stylelint": "^13.8.0",
+    "stylelint-codeframe-formatter": "^1.0.4",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-webpack-plugin": "^2.1.1",
+    "typescript": "~3.9.3",
+    "vue-jest": "^5.0.0-0"
+  },
+  "jest": {
+    "preset": "@vue/cli-plugin-unit-jest"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -e $GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,ts,json,css,vue}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ],
+    "src/**/*.{html,vue,css,sass,scss}": [
+      "stylelint --fix",
+      "git add"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
