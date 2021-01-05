@@ -26,7 +26,7 @@ export function useDynamicRoutesHook() {
     ) {
       if (!hasValue) {
         arr.forEach((constItem: StaticRoutes) => {
-          const pathConcat = parentPath + "/" + constItem.path;
+          const pathConcat = `${parentPath}/${constItem.path}`;
           if (constItem.path === value || pathConcat === value) {
             dynamic.dRoutes.push({ path: value, name: constItem.name });
           } else {

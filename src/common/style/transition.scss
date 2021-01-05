@@ -27,6 +27,28 @@
   transform: translateX(30px);
 }
 
+/* slide */
+.slide-transform-enter {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.slide-transform-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 800ms ease-out;
+}
+
+.slide-transform-exit {
+  opacity: 0;
+  transform: translateX(0);
+}
+
+.slide-transform-exit-active {
+  opacity: 1;
+  transition: all 800ms ease-out;
+}
+
 /* breadcrumb transition */
 .breadcrumb-enter-active,
 .breadcrumb-leave-active {

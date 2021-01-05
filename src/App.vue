@@ -19,9 +19,11 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+
   .el-button--primary {
     background: $menuActiveText; // button 主题色保持一致
     border-color: $menuActiveText;
+
     &.is-plain {
       color: #fff;
     }

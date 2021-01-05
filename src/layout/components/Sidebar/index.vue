@@ -10,6 +10,9 @@ el-menu(
   :text-color="variables.menuText"
   :active-text-color="variables.menuActiveText"
 )
+  <el-header class="header-logo">
+    <h1 class="header-title">样本管理平台</h1>
+  </el-header>
   Sidebar(:item="routes" basePath="")
 </template>
 
@@ -45,4 +48,16 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.el-header {
+  .header-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #fff;
+    line-height: 2;
+    font-size: 22px;
+  }
+}
+</style>

@@ -65,14 +65,17 @@ section.el-container.is-vertical {
   padding: 10px 0;
   height: 100vh;
 }
+
 .el-main::-webkit-scrollbar {
   display: none;
 }
+
 .el-aside {
   width: auto !important;
   height: 100vh;
   overflow-y: scroll;
 }
+
 .el-menu {
   width: 210px !important;
   min-height: 100%;
@@ -80,11 +83,18 @@ section.el-container.is-vertical {
   &.el-menu--collapse {
     width: 60px !important;
   }
-  /*隐藏文字*/
+
+  /* 隐藏logo */
+  &.el-menu--collapse .header-logo {
+    display: none;
+  }
+
+  /* 隐藏文字 */
   &.el-menu--collapse .el-submenu__title span {
     display: none;
   }
-  /*隐藏 > */
+
+  /* 隐藏 > */
   &.el-menu--collapse .el-submenu__title .el-submenu__icon-arrow {
     display: none;
   }
@@ -92,19 +102,23 @@ section.el-container.is-vertical {
 </style>
 <style lang="less" scoped>
 // @import "@/style/transition.less";
+
 /* fade-transform */
 .fade-transform-leave-active,
 .fade-transform-enter-active {
   transition: all 0.5s;
 }
+
 .fade-transform-enter {
   opacity: 0;
   transform: translateX(-30px);
 }
+
 .fade-transform-leave-to {
   opacity: 0;
   transform: translateX(30px);
 }
+
 .el-header {
   padding: 0;
   height: 70px !important;

@@ -23,11 +23,10 @@ class Request extends EventEmitter {
           this.emit("HttpStatusSuccess");
           // response.data
           return Promise.resolve(response.data);
-        } else {
-          // 响应错误逻辑处理 5xx 4xx 等等
-          this.emit("HttpStatusFaild");
-          return Promise.reject(response);
         }
+        // 响应错误逻辑处理 5xx 4xx 等等
+        this.emit("HttpStatusFaild");
+        return Promise.reject(response);
       },
       error => {
         // 响应错误逻辑处理

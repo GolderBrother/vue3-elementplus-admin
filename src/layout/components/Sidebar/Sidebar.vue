@@ -50,51 +50,56 @@ export default {
       return path.resolve(hasBasePath, routePath);
     }
     return {
-      resolvePath: resolvePath,
+      resolvePath,
       variables
     };
   }
 };
 </script>
 <style lang="scss">
-// @import "@/style/variable.less";
 #app {
   .el-menu-item {
     display: flex;
     align-items: center;
   }
+
   .is-active > .el-submenu__title {
     color: $subMenuActiveText !important;
   }
+
   .submenu-title-noDropdown,
   .el-submenu__title,
   .el-menu-item {
     font-weight: bold;
+
     &:hover {
       background-color: $menuHover !important;
     }
   }
+
   .el-submenu__title {
     text-align: left;
+
     i {
       height: 18px;
       color: $menuText !important;
     }
   }
+
   .el-menu-item i {
     height: 18px;
     color: $menuText !important;
   }
+
   .el-menu-item.is-active i {
     color: $menuActiveText !important;
   }
-  .is-active > .el-submenu__title {
-    color: $subMenuActiveText !important;
-  }
+
   & .nest-menu .el-submenu > .el-submenu__title,
   & .el-submenu .el-menu-item {
     min-width: $sideBarWidth !important;
     background-color: $subMenuBg !important;
+
     &:hover {
       background-color: $subMenuHover !important;
     }

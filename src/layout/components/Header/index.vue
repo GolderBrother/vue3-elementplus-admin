@@ -67,11 +67,7 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "@/common/style/variable.scss";
-.collapseicon .el-breadcrumb__inner a:hover,
-.collapseicon .el-breadcrumb__inner.is-link:hover {
-  color: $menuActiveText;
-}
+// @import "@/common/style/variable.scss";
 .header_main {
   box-shadow: 1px 1px #eee;
   // padding-top: 10px;
@@ -82,10 +78,17 @@ export default {
   align-items: flex-start;
   padding-left: 20px;
 }
+
 .collapseicon {
   font-size: 18px;
   cursor: pointer;
 }
+
+.collapseicon .el-breadcrumb__inner a:hover,
+.collapseicon .el-breadcrumb__inner.is-link:hover {
+  color: $menuActiveText;
+}
+
 // el-icon-s-unfold 折叠后
 .collapseicon .el-icon-s-fold,
 .collapseicon .el-icon-s-unfold {
@@ -93,31 +96,38 @@ export default {
   vertical-align: middle;
   margin-right: 5px;
 }
+
 .router-display {
   font-size: 14px;
   font-weight: bold;
   margin-right: 2px;
 }
+
 .el-breadcrumb {
   display: inline-block;
   vertical-align: middle;
 }
+
 .link-tag {
   width: 100%;
 }
+
 /* breadcrumb transition */
 .breadcrumb-enter-active,
 .breadcrumb-leave-active {
   transition: all 0.5s;
 }
+
 .breadcrumb-enter,
 .breadcrumb-leave-active {
   opacity: 0;
   transform: translateX(20px);
 }
+
 .breadcrumb-move {
   transition: all 0.5s;
 }
+
 .breadcrumb-leave-active {
   position: absolute;
 }

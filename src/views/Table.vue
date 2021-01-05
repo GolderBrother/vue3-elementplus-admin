@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
 <template>
   <div class="table-list">
     <div class="search-form">
@@ -24,7 +23,6 @@
         border
         :max-height="tableMinHeight()"
         :data="tableDataList.list"
-        style="width: 100%"
       >
         <el-table-column fixed prop="id" label="ID" width="150">
         </el-table-column>
@@ -68,12 +66,12 @@
 
 <script>
 import { reactive } from "vue";
-import { getTableList, getItem, deleteItem } from "@/api/index";
+import { getItem, deleteItem } from "@/api/index";
 import { mockData } from "@/mock/table";
 export default {
   setup() {
     const tableDataList = reactive({ id: "", list: [] });
-    function getList() {
+    async function getList() {
       const mockResult = {
         err: "",
         result: mockData.wans
@@ -88,7 +86,7 @@ export default {
       //   }
       // });
     }
-    getList(); // 默认第一次拉取数据 一定要先 执行npm run mock 启动mock服务
+    getList();
     function tableMinHeight() {
       return window.innerHeight - 156;
     }
@@ -120,4 +118,10 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.table-data {
+  .el-table {
+    width: 100%;
+  }
+}
+</style>

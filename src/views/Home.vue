@@ -1,14 +1,16 @@
 <template>
   <div class="home">
     <h2>欢迎使用VUE3.0 + ElementPlus 后台管理模板</h2>
-    <div>1. 环境变量：{{ envName.title }}</div>
+    <div>1. 环境变量：</div>
+    <div>title：{{ envName.title }}</div>
+    <div>mode：{{ envName.mode }}</div>
     <div>2. {{ "当前主题色值：" + themeApi.theme.customTheme }}</div>
     <div>
       <div>
         3. <el-button @click="themeApi.setTheme('red')">切换theme</el-button>
         <p>
           theme切换采用
-          将less变量存储在响应式变量中，动态切换该变量达到切换theme（右侧抽屉中可体验）核心逻辑在compisition/useThemeApi
+          将scss变量存储在响应式变量中，动态切换该变量达到切换theme（右侧抽屉中可体验）核心逻辑在compisition/useThemeApi
         </p>
       </div>
       <div>
@@ -25,11 +27,9 @@
     </div>
     <div>7. 头部标签根据menu自动生成核心逻辑在compisition/useTagViewApi</div>
     <div>
-      8. 当前激活菜单和头部标签激活项颜色在less变量中可设置
-      style/variable.less/@menuActiveText
+      8. 当前激活菜单和头部标签激活项颜色在scss变量中可设置
+      common/style/variable.scss/@menuActiveText
     </div>
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <!-- <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" /> -->
     <div>
       9. mock数据：采用json-server基于RESTfulapi风格模拟数据 参考：src/mock/
       启动mock服务 npm run mock
@@ -44,16 +44,18 @@
 <script lang="ts">
 import { reactive, provide } from "vue";
 import variable from "@/common/style/variable.scss";
-// import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
 import { useRouter } from "vue-router";
 import { useTheme } from "@/composition/useThemeApi.ts";
-// import request from "@/http/index";
+// import request from "@/utils//http/index.ts";
 export default {
   setup() {
     const themeApi = useTheme();
     const router = useRouter();
     const variables = reactive(variable);
-    const envName = reactive({ title: process.env.VUE_APP_TITLE });
+    const envName = reactive({
+      title: process.env.VUE_APP_TITLE,
+      mode: process.env.VUE_APP_MODE
+    });
     const mockData = reactive({ data: {} });
     function jumpToInner() {
       router.push({
@@ -72,9 +74,6 @@ export default {
       loadData,
       mockData
     };
-  },
-  components: {
-    // HelloWorld
   }
 };
 </script>
@@ -83,14 +82,18 @@ export default {
   // text-align: center;
   line-height: 24px;
 }
+
 .height {
   height: 999px;
 }
+
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+
+.fade-enter,
+.fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
 }
 </style>

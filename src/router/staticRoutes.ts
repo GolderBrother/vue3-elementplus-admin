@@ -4,7 +4,6 @@ import Document from "@/views/Document.vue";
 import Tab from "@/views/Tab.vue";
 import Image from "@/views/Image.vue";
 import Button from "@/views/Button.vue";
-// import Date from '@/views/Date.vue';
 import Table from "@/views/Table.vue";
 
 /**
@@ -124,13 +123,4 @@ export const staticRoutes: StaticRoutes[] = [
       icon: "el-icon-s-grid"
     }
   }
-  // {
-  //   path: '/date',
-  //   name: '日期',
-  //   component: Date,
-  //   children: [],
-  //   meta: {
-  //     icon: 'el-icon-date'
-  //   }
-  // }
 ];

@@ -5,17 +5,18 @@ module.exports = {
   },
   extends: [
     "plugin:vue/vue3-essential",
+    "@tencent/eslint-config-tencent",
     "eslint:recommended",
     "@vue/typescript/recommended",
     "@vue/prettier",
     "@vue/prettier/@typescript-eslint"
   ],
+  plugins: [
+    "promise",
+    "vue"
+  ],
   parserOptions: {
     ecmaVersion: 2020
-  },
-  rules: {
-    "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
-    "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off"
   },
   overrides: [
     {
@@ -27,5 +28,19 @@ module.exports = {
         jest: true
       }
     }
-  ]
+  ],
+  // settings: {
+  //   "import/resolver": {
+  //     alias: {
+  //       map: [
+  //         ["@", "./src/"]
+  //       ]
+  //     }
+  //   }
+  // },
+  rules: {
+    "prettier/prettier": "error",
+    "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
+    "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off"
+  },
 };

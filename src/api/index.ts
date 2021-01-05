@@ -1,4 +1,4 @@
-import request from "@/http/index.ts";
+import request from "@/utils//http/index.ts";
 interface Data {
   [key: string]: string | number;
 }
