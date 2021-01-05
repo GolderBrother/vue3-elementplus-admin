@@ -4,6 +4,7 @@
     "indentation": 2,
     "number-leading-zero": null,
     "no-descending-specificity": null,
+    "selector-pseudo-element-no-unknown": null,
     "no-missing-end-of-source-newline": null,
     "at-rule-no-unknown": null
   }

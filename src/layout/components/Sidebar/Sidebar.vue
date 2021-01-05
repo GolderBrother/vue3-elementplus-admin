@@ -35,7 +35,6 @@
 </template>
 <script>
 import path from "path";
-// import { useStore } from "vuex";
 import variables from "@/common/style/variable.scss";
 export default {
   name: "sidebar",

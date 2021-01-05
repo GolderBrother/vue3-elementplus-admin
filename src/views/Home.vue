@@ -65,7 +65,7 @@ export default {
     function loadData() {
       console.log("loadData");
     }
-    provide("obj", envName); // 向子孙组件传递参数
+    provide("obj", envName);
     return {
       envName,
       variables,

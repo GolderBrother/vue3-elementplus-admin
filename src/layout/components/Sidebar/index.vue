@@ -19,7 +19,6 @@ el-menu(
 <script lang="ts">
 import { useStore } from "vuex";
 // import { useRoute } from "vue-router";
-// import { ref, onMounted } from "vue";
 import Sidebar from "./Sidebar.vue";
 import { useDynamicRoutesHook } from "@/composition/useTagViewApi.ts";
 import variables from "@/common/style/variable.scss";

@@ -1,13 +1,15 @@
-import request from "@/utils//http/index.ts";
+import http from "@/utils//http/index.ts";
 interface Data {
   [key: string]: string | number;
 }
-export const getTableList = () => {
-  return request.get("http://localhost:3000/wans");
-};
-export const getItem = (data: Data) => {
-  return request.get(`http://localhost:3000/wans/${data.id}`);
-};
-export const deleteItem = (data: Data) => {
-  return request.delete(`http://localhost:3000/wans/${data.id}`);
-};
+export function getTableList() {
+  return http.get("http://localhost:3000/xxx");
+}
+
+export function getItem(data: Data) {
+  return http.get(`http://localhost:3000/xxx/${data.id}`);
+}
+
+export function deleteItem(data: Data) {
+  return http.delete(`http://localhost:3000/xxx/${data.id}`);
+}

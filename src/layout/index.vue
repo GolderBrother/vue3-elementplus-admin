@@ -100,27 +100,8 @@ section.el-container.is-vertical {
   }
 }
 </style>
-<style lang="less" scoped>
-// @import "@/style/transition.less";
-
-/* fade-transform */
-.fade-transform-leave-active,
-.fade-transform-enter-active {
-  transition: all 0.5s;
-}
-
-.fade-transform-enter {
-  opacity: 0;
-  transform: translateX(-30px);
-}
-
-.fade-transform-leave-to {
-  opacity: 0;
-  transform: translateX(30px);
-}
-
+<style lang="scss" scoped>
 .el-header {
   padding: 0;
-  height: 70px !important;
 }
 </style>

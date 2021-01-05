@@ -26,6 +26,8 @@
 <script>
 import { ref, reactive } from "vue";
 import { useTheme } from "@/composition/useThemeApi";
+import { themeTypes } from "@/constants/theme";
+
 export default {
   setup() {
     const themeApi = useTheme();
@@ -34,17 +36,7 @@ export default {
       background: themeApi.theme.customTheme
     });
     const themeType = reactive({
-      themeArr: [
-        "#FFFFFF",
-        "#999EFF",
-        "#1890ff",
-        "#304156",
-        "#212121",
-        "#11a983",
-        "#13c2c2",
-        "#6959CD",
-        "#f5222d"
-      ]
+      themeArr: themeTypes
     });
     function openDrawer() {
       drawer.value = !drawer.value;
@@ -78,25 +70,31 @@ export default {
   background: red;
   opacity: 0.6;
   cursor: pointer;
+  z-index: 1000;
+
   .el-icon-setting {
     font-size: 24px;
     color: #aaa;
   }
 }
+
 .title {
   font-size: 16px;
   padding: 20px;
   text-align: center;
 }
+
 .content {
   padding: 10px;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
+
 .theme-title {
   font-size: 16px;
 }
+
 .theme-type {
   width: 14px;
   height: 14px;
